@@ -53,36 +53,44 @@ void Game::initialize()
 
 void Game::update()
 {
+			//increment rotation angle
 			rotationAngle += 0.005f;
 	
 			if (rotationAngle > 360.0f)
 			{
 				rotationAngle -= 360.0f;
 			}
-		
-		
-
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			//key press to rotate the object
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 			{
 				glRotatef(rotationAngle, 0.0f, 0.0f, 1.0f);
 			}	
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
 			{
 				glRotatef(-rotationAngle, 0.0f, 0.0f, 1.0f);
 			}
-			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-			{
-				glTranslatef(0.01f, 0.01f, 0.0f);
-			}
+			//key press to translate the object
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 			{
-				glTranslatef(-0.01f, -0.01f, 0.0f);
+				glTranslatef(0.01f, 0.0f, 0.0f);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			{
+				glTranslatef(-0.01f, 0.0f, 0.0f);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			{
+				glTranslatef(0.0f, -0.01f, 0.0f);
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			{
+				glTranslatef(0.0f, 0.01f, 0.0f);
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 			{
 				glScalef(0.9f, 0.9f, 1.0f);
 			}
+			//key press to reset object
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 			{
 				glLoadIdentity();
@@ -105,6 +113,7 @@ void Game::draw()
 		//opengl triangle
 		glBegin(GL_TRIANGLES);
 		{
+			//different points x y z
 			glVertex3f(0.0, 0.2, -5.0);
 			glVertex3f(-0.2, -0.2, -5.0);
 			glVertex3f(0.2, -0.2, -5.0);
@@ -114,9 +123,10 @@ void Game::draw()
 
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		//opengl point
+		//opengl points
 		glBegin(GL_POINTS);
 		{
+			//different points x y z
 			glVertex3f(1.0, 2.0, -5.0);
 			glVertex3f(-1.0, 2.0, -5.0);
 			glVertex3f(-1.0, -2.0, -5.0);
@@ -129,6 +139,7 @@ void Game::draw()
 		//opengl lines
 		glBegin(GL_LINES);
 		{
+			//different points x y z
 			glVertex3f(1.0, 1.0, -5.0);
 			glVertex3f(-1.0, -1.0, -5.0);
 		}
@@ -139,6 +150,8 @@ void Game::draw()
 		//opengl line Strip
 		glBegin(GL_LINE_STRIP);
 		{
+			
+			//different points x y z
 			glVertex3f(-0.4, 0.0, -5.0);
 			glVertex3f(-0.3, 0.2, -5.0);
 			glVertex3f(-0.2, 0.0, -5.0);
@@ -153,9 +166,10 @@ void Game::draw()
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 	{
-		//opengl line Strip
+		//opengl line loop
 		glBegin(GL_LINE_LOOP);
 		{
+			//different points x y z
 				glVertex3f(-1.0, 0.0, -5.0);
 				glVertex3f(0.0, -1.0, -5.0);
 				glVertex3f(1.0, 0.0, -5.0);
@@ -167,9 +181,10 @@ void Game::draw()
 
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
 	{
-		//opengl line Strip
+		//opengl triangle Strip
 		glBegin(GL_TRIANGLE_STRIP);
 		{
+			//different points x y z
 			glVertex3f(0.0, 0.2, -5.0);
 			glVertex3f(-0.2, -0.2, -5.0);
 			glVertex3f(0.2, -0.2, -5.0);
@@ -184,9 +199,10 @@ void Game::draw()
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
 	{
-		//opengl triangle
+		//opengl quads
 		glBegin(GL_QUADS);
 		{
+			//different points x y z
 			glVertex3f(0.6, 0.6, -5.0);
 			glVertex3f(-0.4, 0.4, -5.0);
 			glVertex3f(-0.1, 0.1, -5.0);
@@ -204,9 +220,10 @@ void Game::draw()
 
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::U))
 	{
-		//opengl line Strip
+		//opengl quads Strip
 		glBegin(GL_QUAD_STRIP);
 		{
+			//different points x y z
 			glVertex3f(0.6, 0.6, -5.0);
 			glVertex3f(-0.2, 0.2, -5.0);
 			glVertex3f(-0.4, 0.2, -5.0);
@@ -221,9 +238,10 @@ void Game::draw()
 	
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
 	{
-	//opengl line Strip
+	//opengl triangle fan 
 	glBegin(GL_TRIANGLE_FAN);
 	{
+		//different points x y z
 		glVertex3f(0.0, 0.3, -5.0);
 		glVertex3f(0.2, 0.3, -5.0);
 		glVertex3f(0.3, 0.2, -5.0);
@@ -243,9 +261,10 @@ void Game::draw()
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
 	{
-	//opengl lines
+	//opengl polygon
 	glBegin(GL_POLYGON);
 	{
+		//different points x y z
 		glVertex3f(-1.0f, 1.0f, -5.0);	// Top Left
 		glVertex3f(1.0f, 1.0f, -5.0);	// Top Right
 		glVertex3f(1.0f, -1.0f, -5.0);	// Bottom Right
