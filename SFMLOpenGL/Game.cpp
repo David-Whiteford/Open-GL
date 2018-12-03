@@ -85,7 +85,6 @@ void Game::update()
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 			{
-
 				glLoadIdentity();
 			}
 	
@@ -190,7 +189,7 @@ void Game::draw()
 		{
 			glVertex3f(0.6, 0.6, -5.0);
 			glVertex3f(-0.4, 0.4, -5.0);
-			glVertex3f(-0.6, 0.4, -5.0);
+			glVertex3f(-0.1, 0.1, -5.0);
 			glVertex3f(-0.4, 0.8, -5.0);
 
 			glVertex3f(-0.4, -0.2, -5.0);
